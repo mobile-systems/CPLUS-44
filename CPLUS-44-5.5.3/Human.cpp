@@ -3,12 +3,14 @@
 // Конструкторы
 Human::Human()
 {
-    setlocale(LC_ALL, "ru_RU.UTF-8");
+    //setlocale(LC_ALL, "ru_RU.UTF-8");
+    setlocale(LC_ALL, "ru_RU");
     std::cout << "Начало работы класса по умолчанию.\n";
 }
 Human::Human(const char* name, const char* lastname, short age, short weight, short height)
 {
-    setlocale(LC_ALL, "ru_RU.UTF-8");
+    //setlocale(LC_ALL, "ru_RU.UTF-8");
+    setlocale(LC_ALL, "ru_RU");
     std::cout << "Начало работы класса ВСЕ значения.\n";
     this->name = name;
     this->lastname = lastname;
@@ -35,6 +37,7 @@ Human::Human(const Human& other)
     this->lastname = other.lastname;
     this->height = other.height;
     this->weight = other.weight;
+    this->currentStep = other.currentStep;
 }
 
 Human::~Human()
@@ -52,13 +55,13 @@ void Human::createUsers(const char* n, const char* ln, short a, short w, short h
     height = h;
 }
 // Расчёт ИМТ
-double Human::imt()
+double Human::imt() const
 {
     //cout << "Ваш ИМТ: " << (h.weight / 2.205) / ((h.height / 39.37) * (h.height / 39.37)) << endl;
     return (weight * 1.0 / (height / 100.0 * height / 100.0));
 }
 // Вычисляем год рождения
-short Human::humanBD()
+short Human::humanBD() const
 {
     return (currentYear - age);
 }

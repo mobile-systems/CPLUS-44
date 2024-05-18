@@ -1,5 +1,4 @@
 #pragma once
-//#include <iostream>
 
 class Human
 {
@@ -23,9 +22,9 @@ public:
     // Создать пользователя
     void createUsers(const char* n, const char* ln, short a, short w, short h);
     // Расчёт ИМТ
-    double imt();
+    double imt() const;
     // Вычисляем год рождения
-    short humanBD();
+    short humanBD() const;
     // Вывод краткой информации о пациенте
     void humanInfo();
     void setStep(long);
