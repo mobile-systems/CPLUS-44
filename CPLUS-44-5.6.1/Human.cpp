@@ -6,11 +6,6 @@ Human::Human()
     //setlocale(LC_ALL, "ru_RU.UTF-8");
     setlocale(LC_ALL, "ru_RU");
     std::cout << "Начало работы класса по умолчанию.\n";
-    this->name = "";
-    this->lastname = "";
-    this->age = 0;
-    this->weight = 0;
-    this->height = 0;
 }
 Human::Human(const char* name, const char* lastname, short age, short weight, short height)
 {
@@ -37,17 +32,45 @@ Human::Human(short a)
 
 Human::Human(const Human& other)
 {
+    std::cout << "Начало работы с копией класса.\n";
     this->age = other.age;
     this->name = other.name;
     this->lastname = other.lastname;
     this->height = other.height;
     this->weight = other.weight;
     this->currentStep = other.currentStep;
+    this->currentYear = other.currentYear;
 }
 
 Human::~Human()
 {
     std::cout << "Окончание работы класса.\n";
+}
+
+Human& Human::operator++()
+{
+    ++height; // Изменяем размер модуля
+    return *this; //Возвращаем текущий уже измененный выше объект
+}
+
+Human& Human::operator--()
+{
+    --height; // Изменяем размер модуля
+    return *this; //Возвращаем текущий уже измененный выше объект
+}
+
+Human Human::operator++(int)
+{
+    Human newObj(*this); // Создаем новый объект
+    ++(*this); // Увеличиваем количество страниц в текущем при помощи уже определенного оператора пред-инкремента
+    return newObj; // Возвращаем новый объект!
+}
+
+Human Human::operator--(int)
+{
+    Human newObj(*this); //  Аналогично предыдущему
+    --(*this);
+    return newObj;
 }
 
 // Создать пользователя
