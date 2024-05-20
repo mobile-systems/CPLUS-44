@@ -102,7 +102,7 @@ bool Human::operator >(const Human& other)
     return this->height > other.height; //Сравниваем, если больше возвращаем true
 }
 
-ostream &operator<<(ostream &output, const Human &m) {
+std::ostream &operator<<(std::ostream &output, const Human &m) {
     output << "Имя: " << m.name << "\n";
     output << "Возраст: " << m.age << "\n";
     output << "Рост: " << m.height << "\n";

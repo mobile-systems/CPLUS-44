@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 
+namespace module_oop {
 class Human
 {
 private:
@@ -18,7 +19,7 @@ public:
     Human();
     Human(const Human& other);
     ~Human();
-    // Перегружаем операторы для увеличения и уменьшения роста
+    // РџРµСЂРµРіСЂСѓР¶Р°РµРј РѕРїРµСЂР°С‚РѕСЂС‹ РґР»СЏ СѓРІРµР»РёС‡РµРЅРёСЏ Рё СѓРјРµРЅСЊС€РµРЅРёСЏ СЂРѕСЃС‚Р°
     Human& operator++();
     Human& operator--();
     Human operator++(int);
@@ -26,18 +27,20 @@ public:
     bool operator < (const Human& other);
     bool operator > (const Human& other);
 
-    friend std::ostream &operator<<(std::ostream &output, const Human &m); //  ключевое слово friend мы будем разбирать в следующем модуле
+    friend std::ostream &operator<<(std::ostream &output, const Human &m); //  РєР»СЋС‡РµРІРѕРµ СЃР»РѕРІРѕ friend РјС‹ Р±СѓРґРµРј СЂР°Р·Р±РёСЂР°С‚СЊ РІ СЃР»РµРґСѓСЋС‰РµРј РјРѕРґСѓР»Рµ
     
-    // Устанавливаем текущий год
+    // РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј С‚РµРєСѓС‰РёР№ РіРѕРґ
     void setYear(short year);
-    // Создать пользователя
+    // РЎРѕР·РґР°С‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
     void createUsers(const char* n, const char* ln, short a, short w, short h);
-    // Расчёт ИМТ
+    // Р Р°СЃС‡С‘С‚ РРњРў
     double imt() const;
-    // Вычисляем год рождения
+    // Р’С‹С‡РёСЃР»СЏРµРј РіРѕРґ СЂРѕР¶РґРµРЅРёСЏ
     short humanBD() const;
-    // Вывод краткой информации о пациенте
+    // Р’С‹РІРѕРґ РєСЂР°С‚РєРѕР№ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РїР°С†РёРµРЅС‚Рµ
     void humanInfo();
     void setStep(long);
     long getStep() const;
 };
+
+}; // Р—Р°РІРµСЂС€Р°РµРј РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРѕ module_oop

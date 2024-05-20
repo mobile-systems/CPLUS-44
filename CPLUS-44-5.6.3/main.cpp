@@ -65,6 +65,8 @@ int main()
     m4--;
     m4--;
     m4.humanInfo();
+    m4++;
+    m4++;
     cout << m4;
 
     return 0;
