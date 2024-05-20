@@ -1,11 +1,11 @@
-#include "Human.h"
+п»ї#include "Human.h"
 #include <iostream>
-// Конструкторы
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹
 Human::Human()
 {
     //setlocale(LC_ALL, "ru_RU.UTF-8");
     setlocale(LC_ALL, "ru_RU");
-    std::cout << "Начало работы класса по умолчанию.\n";
+    std::cout << "РќР°С‡Р°Р»Рѕ СЂР°Р±РѕС‚С‹ РєР»Р°СЃСЃР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ.\n";
     this->name = "";
     this->lastname = "";
     this->age = 0;
@@ -18,7 +18,7 @@ Human::Human(const char* name, const char* lastname, short age, short weight, sh
 {
     //setlocale(LC_ALL, "ru_RU.UTF-8");
     setlocale(LC_ALL, "ru_RU");
-    std::cout << "Начало работы класса ВСЕ значения.\n";
+    std::cout << "РќР°С‡Р°Р»Рѕ СЂР°Р±РѕС‚С‹ РєР»Р°СЃСЃР° Р’РЎР• Р·РЅР°С‡РµРЅРёСЏ.\n";
     this->name = name;
     this->lastname = lastname;
     this->age = age;
@@ -29,7 +29,7 @@ Human::Human(const char* name, const char* lastname, short age, short weight, sh
 }
 Human::Human(const char* name, short age)
 {
-    std::cout << "Начало работы класса 2 значения.\n";
+    std::cout << "РќР°С‡Р°Р»Рѕ СЂР°Р±РѕС‚С‹ РєР»Р°СЃСЃР° 2 Р·РЅР°С‡РµРЅРёСЏ.\n";
     this->name = name;
     this->age = age;
     this->lastname = "";
@@ -40,7 +40,7 @@ Human::Human(const char* name, short age)
 }
 Human::Human(short a)
 {
-    std::cout << "Начало работы класса 1 значение.\n";
+    std::cout << "РќР°С‡Р°Р»Рѕ СЂР°Р±РѕС‚С‹ РєР»Р°СЃСЃР° 1 Р·РЅР°С‡РµРЅРёРµ.\n";
     this->age = age;
     //this->name = "";
     //this->lastname = "";
@@ -52,7 +52,7 @@ Human::Human(short a)
 
 Human::Human(const Human& other)
 {
-    std::cout << "Начало работы с копией класса.\n";
+    std::cout << "РќР°С‡Р°Р»Рѕ СЂР°Р±РѕС‚С‹ СЃ РєРѕРїРёРµР№ РєР»Р°СЃСЃР°.\n";
     this->age = other.age;
     this->name = other.name;
     this->lastname = other.lastname;
@@ -64,53 +64,53 @@ Human::Human(const Human& other)
 
 Human::~Human()
 {
-    std::cout << "Окончание работы класса.\n";
+    std::cout << "РћРєРѕРЅС‡Р°РЅРёРµ СЂР°Р±РѕС‚С‹ РєР»Р°СЃСЃР°.\n";
 }
 
 Human& Human::operator++()
 {
-    ++height; // Изменяем размер модуля
-    return *this; //Возвращаем текущий уже измененный выше объект
+    ++height; // РР·РјРµРЅСЏРµРј СЂР°Р·РјРµСЂ РјРѕРґСѓР»СЏ
+    return *this; //Р’РѕР·РІСЂР°С‰Р°РµРј С‚РµРєСѓС‰РёР№ СѓР¶Рµ РёР·РјРµРЅРµРЅРЅС‹Р№ РІС‹С€Рµ РѕР±СЉРµРєС‚
 }
 
 Human& Human::operator--()
 {
-    --height; // Изменяем размер модуля
-    return *this; //Возвращаем текущий уже измененный выше объект
+    --height; // РР·РјРµРЅСЏРµРј СЂР°Р·РјРµСЂ РјРѕРґСѓР»СЏ
+    return *this; //Р’РѕР·РІСЂР°С‰Р°РµРј С‚РµРєСѓС‰РёР№ СѓР¶Рµ РёР·РјРµРЅРµРЅРЅС‹Р№ РІС‹С€Рµ РѕР±СЉРµРєС‚
 }
 
 Human Human::operator++(int)
 {
-    Human newObj(*this); // Создаем новый объект
-    ++(*this); // Увеличиваем количество страниц в текущем при помощи уже определенного оператора пред-инкремента
-    return newObj; // Возвращаем новый объект!
+    Human newObj(*this); // РЎРѕР·РґР°РµРј РЅРѕРІС‹Р№ РѕР±СЉРµРєС‚
+    ++(*this); // РЈРІРµР»РёС‡РёРІР°РµРј РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂР°РЅРёС† РІ С‚РµРєСѓС‰РµРј РїСЂРё РїРѕРјРѕС‰Рё СѓР¶Рµ РѕРїСЂРµРґРµР»РµРЅРЅРѕРіРѕ РѕРїРµСЂР°С‚РѕСЂР° РїСЂРµРґ-РёРЅРєСЂРµРјРµРЅС‚Р°
+    return newObj; // Р’РѕР·РІСЂР°С‰Р°РµРј РЅРѕРІС‹Р№ РѕР±СЉРµРєС‚!
 }
 
 Human Human::operator--(int)
 {
-    Human newObj(*this); //  Аналогично предыдущему
+    Human newObj(*this); //  РђРЅР°Р»РѕРіРёС‡РЅРѕ РїСЂРµРґС‹РґСѓС‰РµРјСѓ
     --(*this);
     return newObj;
 }
-// Операторы сравнения
+// РћРїРµСЂР°С‚РѕСЂС‹ СЃСЂР°РІРЅРµРЅРёСЏ
 bool Human::operator <(const Human& other)
 {
-    return this->height < other.height; //Сравниваем, если меньше возвращаем true
+    return this->height < other.height; //РЎСЂР°РІРЅРёРІР°РµРј, РµСЃР»Рё РјРµРЅСЊС€Рµ РІРѕР·РІСЂР°С‰Р°РµРј true
 }
 bool Human::operator >(const Human& other)
 {
-    return this->height > other.height; //Сравниваем, если больше возвращаем true
+    return this->height > other.height; //РЎСЂР°РІРЅРёРІР°РµРј, РµСЃР»Рё Р±РѕР»СЊС€Рµ РІРѕР·РІСЂР°С‰Р°РµРј true
 }
 
 std::ostream &operator<<(std::ostream &output, const Human &m) {
-    output << "Имя: " << m.name << "\n";
-    output << "Возраст: " << m.age << "\n";
-    output << "Рост: " << m.height << "\n";
-    output << "Вес: " << m.weight << "\n";
+    output << "РРјСЏ: " << m.name << "\n";
+    output << "Р’РѕР·СЂР°СЃС‚: " << m.age << "\n";
+    output << "Р РѕСЃС‚: " << m.height << "\n";
+    output << "Р’РµСЃ: " << m.weight << "\n";
     return output;
 }
 
-// Создать пользователя
+// РЎРѕР·РґР°С‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
 void Human::createUsers(const char* n, const char* ln, short a, short w, short h)
 {
     name = n;
@@ -119,43 +119,43 @@ void Human::createUsers(const char* n, const char* ln, short a, short w, short h
     weight = w;
     height = h;
 }
-// Расчёт ИМТ
+// Р Р°СЃС‡С‘С‚ РРњРў
 double Human::imt() const
 {
-    //cout << "Ваш ИМТ: " << (h.weight / 2.205) / ((h.height / 39.37) * (h.height / 39.37)) << endl;
+    //cout << "Р’Р°С€ РРњРў: " << (h.weight / 2.205) / ((h.height / 39.37) * (h.height / 39.37)) << endl;
     return (weight * 1.0 / (height / 100.0 * height / 100.0));
 }
-// Вычисляем год рождения
+// Р’С‹С‡РёСЃР»СЏРµРј РіРѕРґ СЂРѕР¶РґРµРЅРёСЏ
 short Human::humanBD() const
 {
     return (currentYear - age);
 }
-// Вывод краткой информации о пациенте
+// Р’С‹РІРѕРґ РєСЂР°С‚РєРѕР№ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РїР°С†РёРµРЅС‚Рµ
 void Human::humanInfo()
 {
-    std::cout << "Имя: " << name << "\n";
-    std::cout << "Фамилия: " << lastname << "\n";
-    std::cout << "Возраст: " << age << "\n";
-    std::cout << "Вес: " << weight << "\n";
-    std::cout << "Рост: " << height << "\n";
+    std::cout << "РРјСЏ: " << name << "\n";
+    std::cout << "Р¤Р°РјРёР»РёСЏ: " << lastname << "\n";
+    std::cout << "Р’РѕР·СЂР°СЃС‚: " << age << "\n";
+    std::cout << "Р’РµСЃ: " << weight << "\n";
+    std::cout << "Р РѕСЃС‚: " << height << "\n";
 }
 
 void Human::setYear(short year)
 {
-    // Устанавливаем текущий год
+    // РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј С‚РµРєСѓС‰РёР№ РіРѕРґ
     currentYear = year;
 }
 
-// Выставить пройденное количество шагов
+// Р’С‹СЃС‚Р°РІРёС‚СЊ РїСЂРѕР№РґРµРЅРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ С€Р°РіРѕРІ
 void Human::setStep(long step)
 {
-    // Устанавливаем количество пройденных шагов.
+    // РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј РєРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕР№РґРµРЅРЅС‹С… С€Р°РіРѕРІ.
     currentStep = step;
 }
 
-// Получить пройденное количество шагов
+// РџРѕР»СѓС‡РёС‚СЊ РїСЂРѕР№РґРµРЅРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ С€Р°РіРѕРІ
 long Human::getStep() const
 {
-    // Считываем шаги
+    // РЎС‡РёС‚С‹РІР°РµРј С€Р°РіРё
     return currentStep;
 }
