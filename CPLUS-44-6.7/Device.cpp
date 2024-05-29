@@ -1,4 +1,5 @@
 #include "Device.h"
+
 Device::Device(int batteryLife) : _batteryLife(batteryLife)
 {
 }

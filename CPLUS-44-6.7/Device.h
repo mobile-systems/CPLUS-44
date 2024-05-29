@@ -1,6 +1,7 @@
 #pragma once
 #include "IElectronics.h"
-class Device : public IElectronics
+
+class Device : virtual public IElectronics
 {
 public:
     Device(int batteryLife);

@@ -129,12 +129,22 @@
   <ItemGroup>
     <ClInclude Include="Appliances.h" />
     <ClInclude Include="Device.h" />
+    <ClInclude Include="Foto.h" />
     <ClInclude Include="IElectronics.h" />
+    <ClInclude Include="Mobile.h" />
+    <ClInclude Include="Notebook.h" />
+    <ClInclude Include="Refrigerator.h" />
+    <ClInclude Include="Washer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Appliances.cpp" />
     <ClCompile Include="Device.cpp" />
+    <ClCompile Include="Foto.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Mobile.cpp" />
+    <ClCompile Include="Notebook.cpp" />
+    <ClCompile Include="Refrigerator.cpp" />
+    <ClCompile Include="Washer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
