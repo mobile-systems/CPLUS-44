@@ -26,7 +26,7 @@ float harmonic_mean(float arr[], int size)
 // Задание 7.2.1
 int main()
 {
-    float arr[] = {0.00011,0.00011,3,4,5,6,7,8,9,0};
+    float arr[] = {0.00011,2,3,4,5,6,7,8,9,0};
     std::cout << harmonic_mean(arr, 9) << "\n";
 
     return 0;
