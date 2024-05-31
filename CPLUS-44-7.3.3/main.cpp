@@ -11,7 +11,7 @@
 #include<string>
 
 const float fZero = 0.0001;
-bool harmonic_mean(float arr[], int size, float& hmean)
+float harmonic_mean(float arr[], int size)
 {
     if (!size)  // Размер массива 0?
     {
@@ -34,11 +34,9 @@ bool harmonic_mean(float arr[], int size, float& hmean)
     {
         throw "zero sum of elements";
     }
-    hmean = size/sum;
-    return true;
+    return (size/sum);
 }
 
-// Задание 7.2.2
 int main()
 {
     float array1[2] = {0.0, 0.0};
@@ -48,12 +46,8 @@ int main()
 
     try
     {
-        if (harmonic_mean(array1, 2, hmean))
-        {
-            std::cout << "Гармоническое среднее: " << hmean << "\n";
-        } else {
-            std::cout << "Возможно деление на ноль!" << "\n";
-        }
+        hmean = harmonic_mean(array1, 2);
+        std::cout << "Гармоническое среднее: " << hmean << "\n";
     }
     catch(const char* e)
     {
@@ -62,12 +56,8 @@ int main()
 
     try
     {
-        if (harmonic_mean(array2, 2, hmean))
-        {
-            std::cout << "Гармоническое среднее: " << hmean << "\n";
-        } else {
-            std::cout << "Возможно деление на ноль!" << "\n";
-        }
+        hmean = harmonic_mean(array2, 2);
+        std::cout << "Гармоническое среднее: " << hmean << "\n";
     }
     catch(const char* e)
     {
@@ -76,12 +66,8 @@ int main()
 
     try
     {
-        if (harmonic_mean(array3, 2, hmean))
-        {
-            std::cout << "Гармоническое среднее: " << hmean << "\n";
-        } else {
-            std::cout << "Возможно деление на ноль!" << "\n";
-        }
+        hmean = harmonic_mean(array3, 2);
+        std::cout << "Гармоническое среднее: " << hmean << "\n";
     }
     catch(const char* e)
     {
