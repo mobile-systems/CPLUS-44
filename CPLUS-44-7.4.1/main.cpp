@@ -48,17 +48,19 @@ float harmonic_mean(float arr[], int size)
     // Сумма элементов массива 0?
     if (!(sum > fZero) || (sum < -fZero))
     {
-        throw "zero sum of elements";
+        throw BadHarmonicMean(sum);
     }
     return (size/sum);
 }
 
 int main()
 {
+    setlocale(LC_ALL, "ru_RU.UTF-8");
     float array1[2] = {0.0, 0.0};
     float array2[2] = {1.5, -1.5};
     float array3[2] = {2.3, 0.5};
     float hmean;
+    BadHarmonicMean bh;
 
     try
     {
@@ -68,6 +70,11 @@ int main()
     catch(const char* e)
     {
         std::cout << "Возможно деление на ноль: " << e << "\n";
+    }
+    catch (BadHarmonicMean &bh)
+    {
+        bh.Show();
+        //std::cout << "Возможно деление на ноль: " << e << "\n";
     }
 
     try
@@ -79,6 +86,10 @@ int main()
     {
         std::cout << "Возможно деление на ноль: " << e << "\n";
     }
+    catch (BadHarmonicMean &bh)
+    {
+        bh.Show();
+    }
 
     try
     {
@@ -88,6 +99,10 @@ int main()
     catch(const char* e)
     {
         std::cout << "Возможно деление на ноль: " << e << "\n";
+    }
+    catch (BadHarmonicMean &bh)
+    {
+        bh.Show();
     }
 
     return 0;
