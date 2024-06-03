@@ -1,36 +1,23 @@
 #include <iostream>
-using namespace std;
 
-class Divider
+using namespace std;
+struct BigStruct
 {
-private:
-    int _number;
-public:
-    Divider(int num) : _number(num)
-    {
-        if (num == 0)
-        {
-            throw "Divider can not be 0!";
-        }
-    }
-    
-    ~Divider()
-    {
-        cout << "Divider destructed" << endl;
-    }
+    double bugStuff[400000]; // массив 400000 * 8 = 3 200 000 байт
 };
 
 int main()
 {
+    BigStruct* bg;
     try
     {
-        Divider d(0);
+        bg = new BigStruct[400000]; // попытка выделить 1192 Гб памяти
     }
-    catch(const char* exception)
+    catch(bad_alloc& ba)
     {
-        cout << "Exception caught: " << exception << endl;
+        cout << "bad_alloc caught!" << endl;
+        cout << ba.what() << endl;
     }
-    
     
     return 0;
 }
