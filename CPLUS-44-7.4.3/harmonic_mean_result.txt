@@ -1,0 +1,4 @@
+Harmonic mean exception!
+Harmonic mean exception!
+Harmonic mean exception!
+hmean = 0.821429
