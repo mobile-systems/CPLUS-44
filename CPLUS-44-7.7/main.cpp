@@ -10,23 +10,89 @@
 
 https://www.learncpp.com/cpp-tutorial/container-classes/
 */
-#include <cassert> // for assert()
+#include <iostream>
+#include <exception>
+using namespace std;
 
-class IntArray
+class bad_range final : public exception {
+public:
+    virtual const char* what() const noexcept override { return "RANGE ERROR!"; }
+};
+
+class bad_length final : public exception {
+public:
+    virtual const char* what() const noexcept override { return "LENGTH ERROR!"; }
+};
+
+class IntegerArray
 {
 private:
     int m_length{};
     int* m_data{};
 
 public:
-    IntArray() = default;
+    IntegerArray() = default;
 
-    IntArray(int length):
+    IntegerArray(int length):
         m_length{ length }
     {
-        assert(length >= 0);
+        if(length < 0)
+        {
+            //throw "Lenght less 0";
+            throw bad_length();
+        }
 
         if (length > 0)
             m_data = new int[length]{};
     }
+    ~IntegerArray()
+    {
+        delete[] m_data;
+        // we don't need to set m_data to null or m_length to 0 here, since the object will be destroyed immediately after this function anyway
+    }
+
+    void erase()
+    {
+        delete[] m_data;
+        // We need to make sure we set m_data to nullptr here, otherwise it will
+        // be left pointing at deallocated memory!
+        m_data = nullptr;
+        m_length = 0;
+    }
+    int& operator[](int index)
+    {
+        if (index >= 0 && index < m_length) {}
+        else
+        {
+            //throw "Index out of range";
+            throw bad_range();
+        }
+        return m_data[index];
+    }
+
+    int getLength() const { return m_length; }
 };
+
+int main()
+{
+    try
+    {
+        IntegerArray ir(10);
+        for (int i{ 0 }; i < 10; ++i)
+            ir[i] = i + 1;
+        
+        cout << "Index #3: " << ir[4] << "\n";
+        cout << "Size of Array: " << ir.getLength() << "\n";
+        
+    }
+    //catch (const char* exception)
+    //{
+    //    cout << exception << "\n";
+    //}
+    catch (exception& e)
+    {
+        cout << e.what() << endl;
+    }
+
+    return 0;
+}
