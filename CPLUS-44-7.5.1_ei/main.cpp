@@ -1,17 +1,17 @@
 #include <iostream>
-#include<exception>
+#include <exception>
 using namespace std;
 
 class Base
 {
 public:
-    Base() {}
+    Base() {};
 };
  
 class Derived: public Base
 {
 public:
-    Derived() {}
+    Derived() {};
 };
  
 int main()
@@ -20,13 +20,13 @@ int main()
     {
         throw Derived();
     }
-    catch (const Base& base)
-    {
-        cout << "Exception: caught Base class" << endl;
-    }
     catch (const Derived& derived)
     {
         cout << "Exception: caught Derived class" << endl;
+    }
+    catch (const Base& base)
+    {
+        cout << "Exception: caught Base class" << endl;
     }
  
     return 0;
