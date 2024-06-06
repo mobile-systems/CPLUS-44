@@ -18,10 +18,18 @@
     <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="IntegerArray.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md">
       <Filter>Файлы ресурсов</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="IntegerArray.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

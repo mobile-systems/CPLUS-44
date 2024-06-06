@@ -11,7 +11,7 @@ public:
     virtual const char* what() const noexcept override { return "Lenght error!"; }
 };
 
-IntegerArray::IntegerArray(int length) 
+IntegerArray::IntegerArray(int length) : m_length(length)
 {
     if(length <= 0)
     {
@@ -21,7 +21,7 @@ IntegerArray::IntegerArray(int length)
 
     if (length > 0)
         m_data = new int[length]{};
-    m_length = length;
+    //m_length = length;
     cout << "Constructor\n" << endl;
 };
 IntegerArray::~IntegerArray()

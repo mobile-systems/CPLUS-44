@@ -19,6 +19,6 @@ public:
 	void insertBefore(int value, int index);
 	void remove(int index);
 private:
-    int m_length;
-    int* m_data;
+	int m_length {};
+	int* m_data {};
 };

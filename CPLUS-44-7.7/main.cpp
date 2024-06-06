@@ -22,6 +22,8 @@ int main()
         IntegerArray ir(10);
         for (int i{ 0 }; i < 10; ++i)
             ir[i] = i + 1;
+
+        setlocale(LC_ALL, "ru_RU.UTF-8");
         
         // Проверяем значение присвоенных элементов
         cout << "Проверяем значение элемента: " << ir[4] << "\n";
