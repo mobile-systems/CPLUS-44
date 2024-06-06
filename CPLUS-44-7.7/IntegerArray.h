@@ -2,7 +2,6 @@
 #include <iostream>
 #include <exception>
 #include <algorithm>
-using namespace std;
 
 class IntegerArray 
 {
