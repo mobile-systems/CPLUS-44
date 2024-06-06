@@ -7,7 +7,7 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "${file}",
+                "main.cpp","IntegerArray.cpp",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
