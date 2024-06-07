@@ -8,7 +8,7 @@ template<typename T> T Add(T a, T b) {
  
 int main()
 {
-    setlocale(LC_ALL, "");
+    setlocale(LC_ALL, "ru_RU.UTF-8");
  
     int x = 3;
     int y = 6;
