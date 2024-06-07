@@ -7,7 +7,7 @@ template <typename T> void show(T a) {
 }
 
 int main() {
-    setlocale(LC_ALL, "");
+    setlocale(LC_ALL, "ru_RU.UTF-8");
     
     int n = 5;
     show<int>(n);
