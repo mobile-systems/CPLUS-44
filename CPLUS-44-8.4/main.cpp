@@ -4,8 +4,8 @@
 #include <iostream>
 using namespace std;
 
-//Шаблонный класс: Явная и неявная специализация шаблона класса
-template <typename X = int> class MyClass {
+//Шаблонный класс:
+template <typename X> class MyClass {
     X value;
 public:
     MyClass(X m) {
@@ -16,16 +16,25 @@ public:
         cout << "Значение = " << value << endl;
     }
 };
+//Явная специализация шаблонного класса:
+template <> class MyClass<int> {
+public:
+    int value;
+    MyClass() {
+        value = 5;
+    }
+};
 
 int main() {
 
     setlocale(LC_ALL, "ru_RU.UTF-8");
 
     //Создание объекта с int-полем:
-    MyClass<> a(5);
-    a.get();
-    a.set(3);
-    a.get();
+    //Создание объекта с int-полем:
+    MyClass<int> a;
+    cout << "Значение = " << a.value << endl;
+    a.value = 3;
+    cout << "Значение = " << a.value << endl;
     //Создание объекта с char-полем:
     MyClass<char> b('x');
     b.get();
