@@ -4,8 +4,8 @@
 #include <iostream>
 using namespace std;
 
-//Шаблонный класс:
-template <typename X> class MyClass {
+//Шаблонный класс: Явная и неявная специализация шаблона класса
+template <typename X = int> class MyClass {
     X value;
 public:
     MyClass(X m) {
@@ -22,7 +22,7 @@ int main() {
     setlocale(LC_ALL, "ru_RU.UTF-8");
 
     //Создание объекта с int-полем:
-    MyClass<int> a(5);
+    MyClass<> a(5);
     a.get();
     a.set(3);
     a.get();
