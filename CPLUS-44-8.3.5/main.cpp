@@ -5,12 +5,13 @@
     на экран результаты работы вызова функции для различных типов аргументов — int, float, string.
 */
 #include<iostream>
+#include<string>
 using namespace std;
 
 // Шаблонная функция
 // Поиск максимального значение. Z - Возвращаемое значение, X и Y аргументы для сравнения
-template <typename Z, typename X, typename Y> Z Max(X x, Y y) {
-    Z z;
+template <typename T> T Max(T x, T y) {
+    T z;
     //cout << "Первый аргумент: " << x << endl;
     //cout << "Второй аргумент: " << y << endl;
     if (x > y) {
@@ -26,41 +27,31 @@ template <typename Z, typename X, typename Y> Z Max(X x, Y y) {
 // Специализация шаблонной функции для типа <string>
 // Входные данные и результат типа string
 template <> string Max(string x, string y) {
-   //cout << "Первый аргумент: " << x << endl;
-   //cout << "Второй аргумент: " << y << endl;
-   //cout << "Сумма чисел равна: " << x + y << endl;
-   //cout << "Размер x: " << x.size() << "\n";
-   //cout << "Размер y: " << y.size() << "\n";
-   if(x.size()>y.size()) 
-       return x;
-   else
-       return y;
-}
+    //cout << "Первый аргумент: " << x << endl;
+    //cout << "Второй аргумент: " << y << endl;
+    //cout << "Сумма чисел равна: " << x + y << endl;
+    //cout << "Размер x: " << x.size() << "\n";
+    //cout << "Размер y: " << y.size() << "\n";
+    if (x.size() > y.size())
+        return x;
+    else
+        return y;
+};
 
 // Шаблонная функция для 3 аргументов
 // Поиск максимального значение. Z - Возвращаемое значение, A, B, C аргументы для сравнения
-// template <typename Z, typename A, typename B, typename C> Z Max(A a, B b, C c) {
-//     Z z;
-//     //cout << "Первый аргумент: " << x << endl;
-//     //cout << "Второй аргумент: " << y << endl;
-//     // if (a > b) {
-//     //     z = a;
-//     // }
-//     // else {
-//     //     z = b;
-//     // }
-//     z = Max(c, (Max(a, b) ) );
-//     return (z);
-// }
+template <typename T> T Max(T a, T b, T c) {
+    return Max(Max(a, b), c);
+};
 
 int main() {
     setlocale(LC_ALL, "ru_RU.UTF-8");  
     // Вызовы шаблонной функции
-    cout << "Вывод результата сравнения: " << Max<float, int>(2.5, 5.7) << endl;
-    cout << "Вывод результата сравнения: " << Max<int, int>(5, 2) << endl;
+    cout << "Вывод результата сравнения: " << Max<float>(2.5, 5.7) << endl;
+    cout << "Вывод результата сравнения: " << Max<int>(5, 2) << endl;
     
-    cout << "Вывод результата сравнения: " << Max<string, string, string>("Peter", "Ivan") << endl;
-    //cout << "Вывод результата сравнения: " << Max<int, int, int>(5, 2, 7) << endl;
+    cout << "Вывод результата сравнения: " << Max<string>("Peter", "Ivan") << endl;
+    cout << "Вывод результата сравнения: " << Max<int>(5, 2, 7) << endl;
 
     return 0;
 }
