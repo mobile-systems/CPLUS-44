@@ -1,44 +1,33 @@
-// 8.4.Шаблонные классы 
-// Пример объявления и использования шаблонного класса:
-
 #include <iostream>
+#include <string>
 using namespace std;
 
-//Шаблонный класс:
-template <typename X> class MyClass {
-    X value;
+template <typename T>
+class MyPair {
+    T _a, _b;
 public:
-    MyClass(X m) {
-        value = m;
+    MyPair(T first, T second)
+    {
+        _a = first;
+        _b = second;
     }
-    void set(X m) { value = m; }
-    void get() {
-        cout << "Значение = " << value << endl;
-    }
+    T Max();
 };
-//Явная специализация шаблонного класса:
-template <> class MyClass<int> {
-public:
-    int value;
-    MyClass() {
-        value = 5;
-    }
-};
+
+template <class T>
+T MyPair<T>::Max()
+{
+    T retval;
+    retval = _a > _b ? _a : _b;
+    return retval;
+}
 
 int main() {
+    MyPair <int> myobject1(100, 75);
+    cout << myobject1.Max() << endl;
 
-    setlocale(LC_ALL, "ru_RU.UTF-8");
+    MyPair <string> myobject2("Red", "Green");
+    cout << myobject2.Max();
 
-    //Создание объекта с int-полем:
-    //Создание объекта с int-полем:
-    MyClass<int> a;
-    cout << "Значение = " << a.value << endl;
-    a.value = 3;
-    cout << "Значение = " << a.value << endl;
-    //Создание объекта с char-полем:
-    MyClass<char> b('x');
-    b.get();
-    b.set('z');
-    b.get();
     return 0;
 }
