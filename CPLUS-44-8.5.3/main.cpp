@@ -27,7 +27,7 @@ int main() {
     cout << myobject1.Max() << endl;
 
     MyPair <string> myobject2("Red", "Green");
-    cout << myobject2.Max();
+    cout << myobject2.Max() << endl;
 
     return 0;
 }
