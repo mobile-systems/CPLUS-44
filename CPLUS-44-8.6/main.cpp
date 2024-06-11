@@ -1,3 +1,4 @@
+#include <boost/core/demangle.hpp>
 #include <iostream>
 #include <typeinfo>
 using namespace std;
@@ -19,7 +20,17 @@ int main() {
     auto sum3 = Add(2U, 3);             
     cout << typeid(sum3).name() << endl;
     auto sum4 = Add(2.2f, 3);           
-    cout << typeid(sum4).name() << endl;
-    
+    cout << typeid( sum4 ).name() << endl;
+    //cout << typeid(sum4).
+    //cout << type_info::name sum4
+    std::string real_name1 = boost::core::demangle(typeid(sum1).name());
+    cout << real_name1 << endl;
+    std::string real_name2 = boost::core::demangle(typeid(sum2).name());
+    cout << real_name2 << endl;
+    std::string real_name3 = boost::core::demangle(typeid(sum3).name());
+    cout << real_name3 << endl;
+    std::string real_name4 = boost::core::demangle(typeid(sum4).name());
+    cout << real_name4 << endl;
+
     return 0;
 }
