@@ -12,7 +12,7 @@ public:
 };
 
 template <class T>
-IntegerArray<T>::IntegerArray(T length) : m_length(length)
+IntegerArray<T>::IntegerArray(T length) //: m_length(length)
 {
     if(length <= 0)
     {
@@ -22,7 +22,7 @@ IntegerArray<T>::IntegerArray(T length) : m_length(length)
 
     if (length > 0)
         m_data = new T[length]{};
-    //m_length = length;
+    m_length = length;
     cout << "Constructor\n" << endl;
 };
 
@@ -62,7 +62,7 @@ template <class T>
 T IntegerArray<T>::getLength() const { return m_length; }
 
 // reallocate resizes the array.  Any existing elements will be destroyed.  This function operates quickly.
-template <typename T>
+template <class T>
 void IntegerArray<T>::reallocate(T newLength)
 {
     // First we delete any existing elements
@@ -73,7 +73,7 @@ void IntegerArray<T>::reallocate(T newLength)
         return;
 
     // Then we have to allocate new elements
-    m_data = new int[newLength];
+    m_data = new T[newLength];
     m_length = newLength;
 }
 // resize resizes the array.  Any existing elements will be kept.  This function operates slowly.
