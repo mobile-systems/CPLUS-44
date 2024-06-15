@@ -36,6 +36,6 @@ private:
 int main()
 {
     file logfile("logfile.txt");
-    logfile.write("hello logfile!");
+    logfile.write("hello logfile 2024-06-15!");
     return 0;
 }
