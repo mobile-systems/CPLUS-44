@@ -8,7 +8,7 @@ int main()
     int* ar = (int*)allocator->allocate(5 * sizeof(int), 4);
     int* ar2 = (int*)allocator->allocate(5 * sizeof(int), 4);
     cout << ar << endl;
-    cout << ar2;
+    cout << ar2 << endl;
     
     for (int i = 0 ; i < 5; ++i)
     {
