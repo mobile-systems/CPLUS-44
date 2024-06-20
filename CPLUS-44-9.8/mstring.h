@@ -32,6 +32,26 @@ public:
        return *this;
     }
 
+    mstring(mstring&& other) noexcept // конструктор копирования перемещения
+    {
+        cout << "move constructor " << other._string << endl;
+        _string = other._string;
+        _size = other._size;
+        other._string = nullptr;
+        other._size = 0;
+    }
+    
+    mstring& operator=(mstring&& other) noexcept // конструктор присваивания перемещения
+    {
+        cout << "move assignment constructor " << other._string << endl;
+        _string = other._string; // копируем указатель на си-строку
+        _size = other._size;
+        other._string = nullptr; // переписываем указатель на си-строку nullptr, потому что объект other больше ей не владеет
+        other._size = 0;
+        
+        return *this;
+    }
+    
     ~mstring() noexcept
     {
         delete[] _string;
