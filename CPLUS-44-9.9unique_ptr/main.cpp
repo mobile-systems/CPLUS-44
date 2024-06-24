@@ -17,9 +17,16 @@ private:
 int main()
 {
     setlocale(LC_ALL, "ru_RU.UTF-8");
-    auto_ptr<Int> ptr(new Int(3)); // создали объект Int с значением 3 и поместили его в умный указатель
-    (*ptr).SetInt(1); // получили объект с помощью операции разименования и присвоили значение 1
-    cout << "object value: "<< ptr->GetInt() << endl; // получили значение объекта Int
-    cout << "object value using get: "<< ptr.get()->GetInt() << endl; // то же, с помощью get()
+
+    unique_ptr<Int> ptr( new Int(2));
+    (*ptr).SetInt(1);
+    cout << "object value: "<< ptr->GetInt() << endl;
+	
+    unique_ptr<Int> ptr2 = move(ptr); // передали объект Int указателю ptr2
+	
+    cout << "ptr2 value: " << ptr2->GetInt() << endl;
+    cout << (ptr == nullptr) << endl; // ptr теперь равен nullptr
     return 0;
 }
+
+

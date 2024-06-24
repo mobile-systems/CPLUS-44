@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.16) # Проверка версии CMake.
 									# Если версия установленой программы
 									# старее указаной, произайдёт аварийный выход.
 
-project(MyAutoPtr LANGUAGES CXX)
+project(MyUniquePtr LANGUAGES CXX)
 #find_library(PTHREAD_LIBRARY pthread)
 #find_library(PCRE_LIBRARY pcre)
 #include_directories(include)
