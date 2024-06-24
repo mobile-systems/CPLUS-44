@@ -3,21 +3,21 @@
 
 using namespace std;
 
-class Int : public enable_shared_from_this<Int> // указываем имя класс Int как параметр шаблона enable_shared_from_this
+class Int
 {
 public:
     Int(int i = 0) : _int(i) { cout << "constructor: " << _int << endl; } 
     ~Int() { cout << "destructor: " << _int << endl; }
     void SetInt(int i) { _int = i; cout << "Int set to: " << _int << endl; }
     int GetInt() { return _int; }
-
-    shared_ptr<Int> GetPtr() { return shared_from_this(); } // метод, который возвращает shared_ptr
 private:
     int _int;
 }; 
+
+
 void func(Int* i)
 {
-    shared_ptr<Int> ptr = i->GetPtr();
+    shared_ptr<Int> ptr(i); // shared_ptr с счетчиком ссылок 1 удалит объект по завершению функции
     cout << ptr.use_count() << endl;
     cout << ptr->GetInt() << endl;
 }
