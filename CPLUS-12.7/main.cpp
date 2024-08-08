@@ -1,28 +1,26 @@
 //12.7.Домашнее задание
 #include <iostream>
 #include <string>
-
+//#define DEBUG 1
 using namespace std;
-/*
-            a b c a b c a b c a b c
-i           0 1 2 3 4 5 6 7 8 9 1011
-textCount   1 1 1 2 2 2 3 3 3 4 4 4
-*/
-// Поиск числа повторений
-int IsKPeriodic(char text[], int K)
+
+// Поиск и сравнение числа K
+bool IsKPeriodic(char text[], int K)
 {
-    int i = 0;
+    int i = 0; // Счётчик для циклов
     int textCount[256] = {0}; // Массив для подсчёта повторяющихся символов
-    // Подсчёт повторений букв
+    // Подсчёт повторений символов
     while (i < (strlen(text)))
     {
         textCount[text[i]]++;
+#ifdef DEBUG
         std::cout << "Символ: " << text[i] << " ";
+#endif // DEBUG
         i++;
     }
     std::cout << "\n";
 #ifdef DEBUG
-    int j = 0;
+    int j = 0; // Для переноса на новую строку выводимого массива данных
     // Выводим массив подсчёта повторяющихся символов
     for (size_t i = 0; i < 256; i++)
     {
@@ -39,70 +37,81 @@ int IsKPeriodic(char text[], int K)
     }
     std::cout << "\n";
 #endif // DEBUG
-    // Минимальное и максимальное количество повторений символов
-    int minFind = 0, maxFind = 0;
-    // Поиск примерного количества вхождений
-    for (size_t i = 0; i < 256; i++)
+    int minFind = 0, // Минимальное количество повторений символов (очистка от шума, одиночных посторонних символов)
+        avgFind = 0, // Целевое количество повторений символов
+        maxFind = 0; // Максимальное количество повторений символов (повторяющихся в паттерне символов)
+    // Поиск количества вхождений символов
+    for (i = 0; i < 256; i++)
     {
         if (textCount[i])
         {
-            if (minFind)
+            if (minFind > 0)
             {
-                // Если больше нуля и больше minFind, то устанавливаем новое значение maxFind
-                if(minFind < textCount[i])
-                    maxFind = textCount[i];
-                // Если больше нуля и minFind > maxFind, то обмен minFind и maxFind
-                //if ((minFind > textCount[i]) && (minFind > maxFind))
-                //{
-                //    maxFind = minFind;
-                //    minFind = textCount[i];
-                //}
+                // Ищем шум - одиночные посторонние символы
+                if(minFind > textCount[i])
+                    minFind = textCount[i];
             }
             else
             {
                 minFind = textCount[i];
             }
-            if (maxFind)
+            if (maxFind > 0)
             {
-                // Если больше нуля и minFind > maxFind, то обмен minFind и maxFind
-                if ((minFind > textCount[i]) && (minFind > maxFind))
+                // Поиск повторяющихся в паттерне символов
+                if (maxFind < textCount[i])
                 {
-                    maxFind = minFind;
-                    minFind = textCount[i];
+                    maxFind = textCount[i];
                 }
-                maxFind = minFind;
             }
             else
             {
                 maxFind = textCount[i];
             }
-
             std::cout << textCount[i] << " = " << (char)i << "\n";
         }
     }
-    std::cout << "Минимальное количество вхождений: " << minFind << ", максимальное количество вхождений : " << maxFind << "\n";
-    // Считаем количество повторений
-    if (minFind)
+    // Поиск количества целевых вхождений
+    for (i = 0; i < 256; i++)
     {
-        minFind = strlen(text) / minFind;
+        if (textCount[i])
+        {
+            if (avgFind > 0)
+            {
+                // Ищем вхождение основных (не повторяющихся) символов паттерна
+                if ((minFind < textCount[i]) && (textCount[i] < maxFind))
+                {
+                    //maxFind = minFind;
+                    avgFind = textCount[i];
+                }
+            }
+            else
+            {
+                avgFind = textCount[i];
+            }
+        }
+    }
+    std::cout << "Минимальное количество вхождений: " << minFind << ", целевое количество вхождений: " << avgFind << " максимальное количество вхождений : " << maxFind << "\n";
+    // Сравниваем полученную и ожидаемую кратность
+    if (avgFind > 0 && K == (strlen(text) / avgFind))
+    {
+        return true;
     } else
-        minFind = 0;
-
-    return minFind;
+        return false;
 }
 
 int main()
 {
-    //char text[] = "abcabcabcabcaaa";
-    char text[] = "aabcaabcaabcaabc";
-    //char text[] = "abcdef";
-    int K = 3;
+    //char text[] = "abcabcabcabc";
+    char text[] = "abcabczabcaabc"; // Входная строка
+    int K = 3; // Ожидаемая кратность
+    //char text[] = "abcdefabcdef";
+    //int K = 6;
     setlocale(LC_ALL, "rus");
 
-    int countK = IsKPeriodic(text, K);
-
-    if(countK)
-        std::cout << "Найдена кратность K: " << countK << " подстрок.\n";
+    if(IsKPeriodic(text, K))
+        std::cout << "Кратность K: " << K << " соответствует.\n";
+    else
+        std::cout << "Кратность не соответствует.\n";
 
     return 0;
 }
