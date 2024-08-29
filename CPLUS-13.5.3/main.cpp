@@ -35,6 +35,7 @@ int main(void)
 
     //g.depth(0);
     std::cout << "Find routes: " << g.findPathCount(1, 2) << "\n";
+    //std::cout << "Find routes: " << g.findPathCount(1, 2) << "\n";
 
     return 0;
 }

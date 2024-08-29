@@ -24,11 +24,12 @@ public:
 private:
     bool edgeExists(int v1, int v2);
     bool vertexExists(int v);
-    int depthInner(int current, int to, bool visited[]);
+    void depthInner(int current, int to, bool visited[]);
 
     int matrix[SIZE][SIZE]; // матрица смежности
 
     int vertexes[SIZE]; // хранилище вершин
     int vertexCount; // количество добавленных вершин
+    int routes; //  оличество маршрутов
 };
 #endif
