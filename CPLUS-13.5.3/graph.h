@@ -9,15 +9,15 @@
 class Graph {
 public:
     Graph();
-    // добавление вершины
+    // РґРѕР±Р°РІР»РµРЅРёРµ РІРµСЂС€РёРЅС‹
     void addVertex(int vnumber);
-    // добавление ребра
+    // РґРѕР±Р°РІР»РµРЅРёРµ СЂРµР±СЂР°
     void addEdge(int v1, int v2, int weight);
-    // удаление вершины
+    // СѓРґР°Р»РµРЅРёРµ РІРµСЂС€РёРЅС‹
     void delVertex(int vnumber);
-    // удаление ребра
+    // СѓРґР°Р»РµРЅРёРµ СЂРµР±СЂР°
     void delEdge(int v1, int v2);
-    //поиск количества путей
+    //РїРѕРёСЃРє РєРѕР»РёС‡РµСЃС‚РІР° РїСѓС‚РµР№
     int findPathCount(int v1, int v2);
     int dummy1(int v1, int v2);
     void dummy2(void** param);
@@ -26,10 +26,10 @@ private:
     bool vertexExists(int v);
     void depthInner(int current, int to, bool visited[]);
 
-    int matrix[SIZE][SIZE]; // матрица смежности
+    int matrix[SIZE][SIZE]; // РјР°С‚СЂРёС†Р° СЃРјРµР¶РЅРѕСЃС‚Рё
 
-    int vertexes[SIZE]; // хранилище вершин
-    int vertexCount; // количество добавленных вершин
-    int routes; // Количество маршрутов
+    int vertexes[SIZE]; // С…СЂР°РЅРёР»РёС‰Рµ РІРµСЂС€РёРЅ
+    int vertexCount; // РєРѕР»РёС‡РµСЃС‚РІРѕ РґРѕР±Р°РІР»РµРЅРЅС‹С… РІРµСЂС€РёРЅ
+    int routes; // РљРѕР»РёС‡РµСЃС‚РІРѕ РјР°СЂС€СЂСѓС‚РѕРІ
 };
 #endif

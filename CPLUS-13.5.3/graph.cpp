@@ -6,24 +6,24 @@ Graph::Graph() {
             matrix[i][j] = 0;
     vertexCount = 0;
 }
-// добавление вершины
+// РґРѕР±Р°РІР»РµРЅРёРµ РІРµСЂС€РёРЅС‹
 void Graph::addVertex(int vnumber)
 {
     vertexes[vertexCount] = vnumber;
     vertexCount++;
 }
-// добавление ребра
+// РґРѕР±Р°РІР»РµРЅРёРµ СЂРµР±СЂР°
 void Graph::addEdge(int v1, int v2, int weight)
 {
     matrix[v1][v2] = weight;
     matrix[v2][v1] = weight;
 }
-// проверка существования ребра
+// РїСЂРѕРІРµСЂРєР° СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёСЏ СЂРµР±СЂР°
 bool Graph::edgeExists(int v1, int v2)
 {
     return matrix[v1][v2] > 0;
 }
-// проверка существования вершины
+// РїСЂРѕРІРµСЂРєР° СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёСЏ РІРµСЂС€РёРЅС‹
 bool Graph::vertexExists(int v)
 {
     for (int i = 0; i < vertexCount; i++)
