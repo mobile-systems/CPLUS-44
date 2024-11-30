@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.16) # Проверка версии CMake.
 									# Если версия установленой программы
 									# старее указаной, произайдёт аварийный выход.
 
-project(curlFinam LANGUAGES CXX)
+project(curlMOEX LANGUAGES CXX)
 #find_library(PTHREAD_LIBRARY pthread)
 #find_library(PCRE_LIBRARY pcre)
 find_library(CURL_LIBRARY curl)

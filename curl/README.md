@@ -1,4 +1,4 @@
-# Библиотека libcurl в С++ для работы по HTTP
+# Использование библиотеки libcurl в С++ для работы по HTTPS с данными из API moexalgo
 
 
-https://www.cyberforum.ru/blogs/131347/blog1151.html
+По мотивам обсуждений https://www.cyberforum.ru/blogs/131347/blog1151.html и на базе API <a src=https://github.com/moexalgo/moexalgo>moexalgo</a>
