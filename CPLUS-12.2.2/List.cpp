@@ -71,7 +71,7 @@ void List::show()
 
     while (current != nullptr)
     {
-        cout << current->m_data;
+        std::cout << current->m_data;
         current = current->m_next;
     }
 }
@@ -80,31 +80,28 @@ void List::show()
 void List::deleteNode(int position)
 {
     // ваш код
-}
-
-// Напишем реализацию метода для удаления узла по значению ключа :
-void List::deleteNode(int data)
-{
     Node* temp = m_head;
     Node* prev = nullptr;
-
     // крайний случай удаления начала списка
-    if (temp && temp->m_data == data)
-    {
+    if (temp  && position == 0) 
+    { 
         m_head = temp->m_next;
-        delete temp;
-        return;
+        delete temp;           
+        return; 
     }
-    // идем по списку, пока не найдем узел со значением данных, равных ключу
-    while (temp && temp->m_data != data)
-    {
-        prev = temp;
-        temp = temp->m_next;
-    }
+
+    // идем по списку, пока не найдем узел с индексом, равных искомому
+    int count = 0;
+    while (temp && position != count) 
+    { 
+        prev = temp; 
+        temp = temp->m_next; 
+        count++;
+    } 
     // если узел не найден, возвращаем
-    if (!temp)
-        return;
+    if (!temp) 
+        return; 
     // меняем указатель следующего узла для предыдущего узла на узел, следующий за удаляемым узлом, и удаляем узел с данными
-    prev->m_next = temp->m_next;
-    delete temp;
+    prev->m_next = temp->m_next; 
+    delete temp; 
 }
