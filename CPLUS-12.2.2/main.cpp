@@ -4,7 +4,8 @@
 
 int main(void)
 {
-    List* price;
+    // создаем новый связанный список
+    List* price = new List();
     price->push_back(12);
     price->push_back(3);
     price->push_back(101);
