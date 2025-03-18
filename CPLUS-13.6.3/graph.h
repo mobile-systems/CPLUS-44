@@ -19,6 +19,9 @@ class Graph {
         void delEdge(int v1, int v2);
         //поиск количества путей
         int findMinWayDFS(int v1, int v2);
+        void depth(int start);
+        void depthInner(int current, bool visited[]);
+
         
         void inner(
     int current,int to, bool visited[], int& min, int currentDistance);
