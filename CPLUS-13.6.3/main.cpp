@@ -34,7 +34,7 @@ int main(void)
     //g.addEdge(7, 6, 1);
 
     //g.depth(0);
-    g.findMinWayDFS(2,3);
+    g.findMinWayDFS(0,2);
     //std::cout << "Find routes: " << g.findPathCount(1, 2) << "\n";
     //std::cout << "Find routes: " << g.findPathCount(1, 2) << "\n";
 
