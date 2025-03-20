@@ -31,6 +31,11 @@ class Graph {
     private:
         bool edgeExists(int v1, int v2);
         bool vertexExists(int v);
+        
+        int edgeLen(int v1, int v2); // Длина ребра
+        int eLen; // Длина ребра
+        int routeLen; // Длина маршрута
+
 
         int matrix[SIZE][SIZE]; // матрица смежности
          

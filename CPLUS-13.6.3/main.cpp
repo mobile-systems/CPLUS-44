@@ -13,10 +13,10 @@ int main(void)
 //   g.addVertex(7);
 //   g.addVertex(8);
     g.addEdge(1, 4, 1); // 1-4
-    g.addEdge(0, 4, 1); // 0-4
-    g.addEdge(0, 2, 1); // 0-2
-    g.addEdge(2, 3, 1); // 2-3
-    g.addEdge(2, 4, 1); // 2-4
+    g.addEdge(0, 4, 2); // 0-4
+    g.addEdge(0, 2, 3); // 0-2
+    g.addEdge(2, 3, 4); // 2-3
+    g.addEdge(2, 4, 5); // 2-4
 
     //g.addEdge(0, 1, 1);
     //g.addEdge(0, 2, 1);
