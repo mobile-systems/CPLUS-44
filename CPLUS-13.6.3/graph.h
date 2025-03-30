@@ -20,7 +20,7 @@ class Graph {
         //поиск количества путей
         int findMinWayDFS(int v1, int v2);
         void depth(int start, int to);
-        void depthInner(int current, int to, bool visited[]);
+        void depthInner(int current, int to);
 
         
         void inner(
@@ -35,11 +35,13 @@ class Graph {
         int edgeLen(int v1, int v2); // Длина ребра
         int eLen; // Длина ребра
         int routeLen; // Длина маршрута
+        bool recursionEXIT;
 
 
         int matrix[SIZE][SIZE]; // матрица смежности
          
         int vertexes[SIZE]; // хранилище вершин
+        bool visited[SIZE]; // список посещенных вершин
         int vertexCount; // количество добавленных вершин
 };
 #endif
