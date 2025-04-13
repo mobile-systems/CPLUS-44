@@ -11,8 +11,8 @@ int main()
     tree.addNode(4,1);
     tree.addNode(1,5);
     tree.addNode(1,6);
-    
+    tree.print();
     tree.delNode(4); // удалили узел 4
-    
+    tree.print();
     return 0;
 }

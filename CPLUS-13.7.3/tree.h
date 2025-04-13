@@ -32,11 +32,13 @@ class Tree { // класс дерева
         
         void delNode(int nodeNumber);
         void dummy(int nodeNumber);
+        void print();
         
         //friend Table print(Tree& tree);
     
     private:
         Node* getNodeByNumber(int number, Node* current);
         Node* root;
+        void printInner(Node *current);
 };
 #endif

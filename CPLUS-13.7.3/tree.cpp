@@ -56,4 +56,22 @@ Tree::Node* Tree::getNodeByNumber(int number, Node* current) {
    }
    return nullptr;
 }
-   
+// Print Tree
+void Tree::print()
+{
+   printInner(root);
+}
+// Recursion print
+void Tree::printInner(Node *current)
+{
+   std::cout << "N" << current->number << ": ";
+   for (size_t i = 0; i < current->childCount; i++)
+   {
+      std::cout << current->children[i]->number << ", ";
+   }
+   std::cout << std::endl;
+   for (size_t i = 0; i < current->childCount; i++)
+   {
+      printInner(current->children[i]);
+   }
+}
