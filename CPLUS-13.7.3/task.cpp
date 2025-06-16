@@ -8,25 +8,33 @@ void Tree::delNode(int number) {
       Node *parentNode = findNode->parent; // Получаем указатель на родителя,...
       for(int i=0; i<findNode->childCount; i++) // ...чтобы прикрепить к нему детей
       {
-          Node* found = getNodeByNumber(findNode->parent->number, findNode->children[i]);
+         findNode->children[i]->parent = parentNode;
+         findNode->childCount--;
+         /*
+         Node* found = getNodeByNumber(findNode->parent->number, findNode->children[i]);
           if(found)
+          findNode->children[i]->parent = parentNode;
           {
             found->parent = parentNode;
             findNode->childCount--;
           }
+         */
       }
-      findNode->childCount = 0;
+      //findNode->childCount = 0;
       int foundIndex = -1;   
       for(int i=0;i<parentNode->childCount; i++)
          if(parentNode->children[i] == findNode)
             foundIndex = i; // нашли индекс удаляемой вершины в массиве
 
-      findNode->delChild(parentNode->children[foundIndex]); // findNode
-      for(int i=foundIndex;i<parentNode->childCount; i++)
+      //findNode->delChild(parentNode->children[foundIndex]); // findNode
+      for(int i=foundIndex;i<(parentNode->childCount); i++)
          parentNode->children[i] = parentNode->children[i+1];
+
+      //findNode->delChild(findNode);
    } else {
-      findNode->delChild(findNode);
+      //findNode->delChild(findNode);
    }
+   findNode->delChild(findNode);
 }
 void Tree::Node::delChild(Node* child) {
    // Ваш код должен быть здесь
