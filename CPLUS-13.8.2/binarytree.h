@@ -1,7 +1,7 @@
 #ifndef __BYNARYTREE_H_
 #define __BYNARYTREE_H_
 
-#include "test.h"
+//#include "test.h"
 
 class BinaryTree {
     public:
@@ -24,7 +24,7 @@ class BinaryTree {
         Node* findNodeByData(int finddata);
         void delInt(int deldata);
         
-        friend Table print(BinaryTree& tree);
+        //friend Table print(BinaryTree& tree);
 
     private:     
 void setNewChild(Node* child, Node* newChild = nullptr);

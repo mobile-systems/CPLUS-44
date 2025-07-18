@@ -1,4 +1,5 @@
-#include "../headers/binarytree.h"
+//#include "../headers/binarytree.h"
+#include "binarytree.h"
 //
 BinaryTree::Node::Node(int d, Node* p):
     data(d), parent(p) {

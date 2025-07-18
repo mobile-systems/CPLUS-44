@@ -1,4 +1,5 @@
-#include "../headers/binarytree.h"
+//#include "../headers/binarytree.h"
+#include "binarytree.h"
 #include <iostream>
 // поиск, возвращает указатель на найденный элемент
 BinaryTree::Node* BinaryTree::findNodeByData(int finddata) {
@@ -8,10 +9,11 @@ BinaryTree::Node* BinaryTree::findNodeByData(int finddata) {
             if (current->data == finddata) {
                 // если элемент равен текущему, заканчиваем поиск
                 std::cout << "Data: " << current->data << "\n";
-                newNode = newNode;
+                newNode = current; //newNode;
                 return newNode;
             } else if (current->data > finddata) {
                 // если элемент меньше текущего, идем влево
+		std::cout << "Data: меньше текущего, идём влево" << "\n";
                 if(current->leftChild != nullptr) {
                     current = current->leftChild;
                     continue;
@@ -19,6 +21,7 @@ BinaryTree::Node* BinaryTree::findNodeByData(int finddata) {
                 return nullptr;
             } else {
                 // если элемент меньше текущего, идем вправо
+		std::cout << "Data: меньше текущего, идём вправо" << "\n";
                 if (current->rightChild != nullptr) {
                     current = current->rightChild;
                     continue;
