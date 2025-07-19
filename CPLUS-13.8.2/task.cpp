@@ -8,7 +8,7 @@ BinaryTree::Node* BinaryTree::findNodeByData(int finddata) {
         while(newNode == nullptr) {
             if (current->data == finddata) {
                 // если элемент равен текущему, заканчиваем поиск
-                std::cout << "Data: " << current->data << "\n";
+                std::cout << "Data: " << current->data << " @ ";
                 newNode = current; //newNode;
                 return newNode;
             } else if (current->data > finddata) {
@@ -79,6 +79,7 @@ void BinaryTree::delInt(int deldata) {
     // Переходим в левую ветку...
     Node    *findNode = nullptr, 
             *nextNode = delNode->leftChild;
+    std::cout << "Переходим к левой ветке: " << nextNode->data << "\n";
     // ... и идём к самому правому узлу левой ветки
     while(nextNode != nullptr)
     {
@@ -86,8 +87,10 @@ void BinaryTree::delInt(int deldata) {
         findNode = nextNode;
         nextNode = nextNode->rightChild;
     }
-    if(findData < delNode->data)
+    std::cout << "Переходим к самому правому узлу левой ветки: " << findNode->data << "\n";
+    if(findNode->data < delNode->data)
     {
+        std::cout << "Подготовка к удалению узла\n";
         //delNode->parent->rightChild = delNode->rightChild;
         delNode->parent->rightChild = findNode;
         findNode->rightChild = delNode->rightChild;
@@ -96,6 +99,7 @@ void BinaryTree::delInt(int deldata) {
         delNode->leftChild->parent = findNode;
         delNode->rightChild->parent = findNode;
         //delNode->parent->leftChild == findNode
+        std::cout << "Удаление узла\n";
     }
     // завершаем работу
     return;
