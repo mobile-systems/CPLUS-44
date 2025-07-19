@@ -13,20 +13,20 @@ BinaryTree::Node* BinaryTree::findNodeByData(int finddata) {
                 return newNode;
             } else if (current->data > finddata) {
                 // если элемент меньше текущего, идем влево
-		std::cout << "Data: меньше текущего, идём влево" << "\n";
+                std::cout << "FindData: " << finddata << " меньше текущего: " << current->data << ", идём влево" << "\n";
                 if(current->leftChild != nullptr) {
                     current = current->leftChild;
                     continue;
                 }
-                return nullptr;
+                continue; //return nullptr;
             } else {
                 // если элемент меньше текущего, идем вправо
-		std::cout << "Data: меньше текущего, идём вправо" << "\n";
+                std::cout << "FindData: " << finddata << " больше текущего: " << current->data << ", идём вправо" << "\n";
                 if (current->rightChild != nullptr) {
                     current = current->rightChild;
                     continue;
                 }
-                return nullptr;
+                continue; //return nullptr;
             }
         }
     return nullptr;

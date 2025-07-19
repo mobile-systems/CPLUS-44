@@ -3,6 +3,8 @@
 
 int main()
 {
+    setlocale(LC_ALL, "ru_RU.UTF-8");
+
     BinaryTree tree;
     
     //tree.setRoot(2); // задали корень
@@ -14,7 +16,7 @@ int main()
     tree.addInt(6);
     std::cout << "Init print" << std::endl;
     //tree.print();
-    tree.delInt(1); // удалили узел 1
+    tree.delInt(4); // удалили узел 1
     std::cout << "After del" << std::endl;
     //tree.print();
     return 0;
