@@ -38,16 +38,19 @@ void BinaryTree::delInt(int deldata) {
         return;
     if(isRoot(delNode)) // Если корневая вершина?
     {
+        std::cout << "Удаляем корневую вершину, пока не реализовано\n";
         return;
     }
     if(isLeaf(delNode)) // Если удаляем листок
     {
         if(delNode->parent->leftChild == delNode)
         {
+            std::cout << "Удаляем левый листок\n";
             delNode->parent->leftChild = nullptr;
         }
         if(delNode->parent->rightChild == delNode)
         {
+            std::cout << "Удаляем правый листок\n";
             delNode->parent->rightChild = nullptr;
         }
         delete delNode;
@@ -56,14 +59,18 @@ void BinaryTree::delInt(int deldata) {
     if(delNode->leftChild != nullptr && delNode->rightChild == nullptr)
     {
         // Если есть только левая дочерняя вершина
+        std::cout << "Удаляем, если есть только левая дочерняя вершина\n";
         delNode->leftChild->parent = delNode->parent;
+        delNode->parent->leftChild = delNode->leftChild;
         delete delNode;
         return;
     }
     if(delNode->leftChild == nullptr && delNode->rightChild != nullptr)
     {
         // Если есть только правая дочерняя вершина
+        std::cout << "Удаляем, если есть только правая дочерняя вершина\n";
         delNode->rightChild->parent = delNode->parent;
+        delNode->parent->rightChild = delNode->rightChild;
         delete delNode;
         return;
     }
