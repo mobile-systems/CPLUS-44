@@ -20,7 +20,7 @@ int main()
     tree.addInt(19);
     std::cout << "Init print" << std::endl;
     //tree.print();
-    tree.delInt(20); // удалили узел 1
+    tree.delInt(4); // удалили узел 1
     std::cout << "After del" << std::endl;
     //tree.print();
     return 0;

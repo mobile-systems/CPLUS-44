@@ -91,15 +91,23 @@ void BinaryTree::delInt(int deldata) {
     if(findNode->data < delNode->data)
     {
         std::cout << "Подготовка к удалению узла\n";
-        //delNode->parent->rightChild = delNode->rightChild;
+        // Правый узел родителя удаляемого узла устанавливаем на найденный узел
         delNode->parent->rightChild = findNode;
-        findNode->rightChild = delNode->rightChild;
+        // Левый узел найденного узла устанавливаем на левый узел удаляемого узла
         findNode->leftChild = delNode->leftChild;
+        // Правый узел найденного узла устанавливаем на правый узел удаляемого узла
+        findNode->rightChild = delNode->rightChild;
+        // Родителя найденного узла устанавливаем на родителя удаляемого узла
         findNode->parent = delNode->parent;
+        // Родителем левого узла устаналиваем найденный узел
         delNode->leftChild->parent = findNode;
+        // Родителем правого узла устаналиваем найденный узел
         delNode->rightChild->parent = findNode;
         //delNode->parent->leftChild == findNode
         std::cout << "Удаление узла\n";
+        delNode->leftChild = nullptr;
+        delNode->rightChild = nullptr;
+        //delete delNode;
     }
     // завершаем работу
     return;
