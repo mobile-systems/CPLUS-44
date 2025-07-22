@@ -4,13 +4,13 @@
 // поиск, возвращает указатель на найденный элемент
 BinaryTree::Node* BinaryTree::findNodeByData(int finddata) {
         Node* current = root; // начинаем с корня
-        Node* newNode = nullptr;
-        while(newNode == nullptr) {
+        Node* findNode = nullptr;
+        while(findNode == nullptr) {
             if (current->data == finddata) {
                 // если элемент равен текущему, заканчиваем поиск
                 std::cout << "Data: " << current->data << " @ ";
-                newNode = current; //newNode;
-                return newNode;
+                findNode = current; //findNode;
+                return findNode;
             } else if (current->data > finddata) {
                 // если элемент меньше текущего, идем влево
                 std::cout << "FindData: " << finddata << " меньше текущего: " << current->data << ", идём влево" << "\n";
