@@ -18,9 +18,10 @@ int main()
     tree.addInt(18);
     tree.addInt(15);
     tree.addInt(19);
+    tree.addInt(45);
     std::cout << "Init print" << std::endl;
     //tree.print();
-    tree.delInt(4); // удалили узел 1
+    tree.delInt(18); // удалили узел 1
     std::cout << "After del" << std::endl;
     //tree.print();
     return 0;
