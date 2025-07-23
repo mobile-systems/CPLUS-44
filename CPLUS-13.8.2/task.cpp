@@ -10,6 +10,8 @@ BinaryTree::Node* BinaryTree::findNodeByData(int finddata) {
                 // если элемент равен текущему, заканчиваем поиск
                 std::cout << "Data: " << current->data << " @ ";
                 findNode = current; //findNode;
+                // Дошли до конца ветки, узел найден!
+                std::cout << "FindData: " << finddata << ". Узел найден!\n";
                 return findNode;
             } else if (current->data > finddata) {
                 // если элемент меньше текущего, идем влево
@@ -18,15 +20,19 @@ BinaryTree::Node* BinaryTree::findNodeByData(int finddata) {
                     current = current->leftChild;
                     continue;
                 }
-                continue; //return nullptr;
+                // Дошли до конца левой ветки, но ничего не найдено
+                std::cout << "FindData: " << finddata << ". Ничего не найдено!\n";
+                return nullptr;
             } else {
-                // если элемент меньше текущего, идем вправо
+                // если элемент больше текущего, идем вправо
                 std::cout << "FindData: " << finddata << " больше текущего: " << current->data << ", идём вправо" << "\n";
                 if (current->rightChild != nullptr) {
                     current = current->rightChild;
                     continue;
                 }
-                continue; //return nullptr;
+                // Дошли до конца правой ветки, но ничего не найдено
+                std::cout << "FindData: " << finddata << ". Ничего не найдено!\n";
+                return nullptr;
             }
         }
     return nullptr;
@@ -62,7 +68,7 @@ void BinaryTree::delInt(int deldata) {
         std::cout << "Удаляем, если есть только левая дочерняя вершина\n";
         delNode->leftChild->parent = delNode->parent;
         delNode->parent->leftChild = delNode->leftChild;
-        delete delNode;
+        //delete delNode;
         return;
     }
     if(delNode->leftChild == nullptr && delNode->rightChild != nullptr)
@@ -71,7 +77,7 @@ void BinaryTree::delInt(int deldata) {
         std::cout << "Удаляем, если есть только правая дочерняя вершина\n";
         delNode->rightChild->parent = delNode->parent;
         delNode->parent->rightChild = delNode->rightChild;
-        delete delNode;
+        //delete delNode;
         return;
     }
     // Если две дочернии вершины :-o
