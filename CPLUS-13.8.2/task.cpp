@@ -81,22 +81,24 @@ void BinaryTree::delInt(int deldata) {
         return;
     }
     // Если две дочернии вершины :-o
-    int findData = delNode->data;
+    //int findData = delNode->data;
     // Переходим в левую ветку...
     Node    *findNode = nullptr, 
             *nextNode = delNode->leftChild;
     std::cout << "Переходим к левой ветке: " << nextNode->data << "\n";
     // ... и идём к самому правому узлу левой ветки
+    std::cout << "Переходим к самому правому узлу левой ветки: ";
     while(nextNode != nullptr)
     {
-        findData = nextNode->data;
+        //findData = nextNode->data;
         findNode = nextNode;
+        std::cout << findNode->data << " ";
         nextNode = nextNode->rightChild;
     }
-    std::cout << "Переходим к самому правому узлу левой ветки: " << findNode->data << "\n";
+    //std::cout << "Переходим к самому правому узлу левой ветки: " << findNode->data << "\n";
     if(findNode->data < delNode->data)
     {
-        std::cout << "Подготовка к удалению узла\n";
+        std::cout << "\nПодготовка к удалению узла\n";
         // Правый узел родителя удаляемого узла устанавливаем на найденный узел
         delNode->parent->rightChild = findNode;
         // Левый узел найденного узла устанавливаем на левый узел удаляемого узла
@@ -113,6 +115,8 @@ void BinaryTree::delInt(int deldata) {
         std::cout << "Удаление узла\n";
         delNode->leftChild = nullptr;
         delNode->rightChild = nullptr;
+        nextNode = nullptr;
+        findNode = nullptr;
         //delete delNode;
     }
     // завершаем работу
