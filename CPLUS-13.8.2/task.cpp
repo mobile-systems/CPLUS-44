@@ -45,7 +45,7 @@ void BinaryTree::delInt(int deldata) {
     if(isRoot(delNode)) // Если корневая вершина?
     {
         std::cout << "Удаляем корневую вершину, пока не реализовано\n";
-        return;
+        //return;
     }
     if(isLeaf(delNode)) // Если удаляем листок
     {
@@ -68,7 +68,7 @@ void BinaryTree::delInt(int deldata) {
         std::cout << "Удаляем, если есть только левая дочерняя вершина\n";
         delNode->leftChild->parent = delNode->parent;
         delNode->parent->leftChild = delNode->leftChild;
-        //delete delNode;
+        delete delNode;
         return;
     }
     if(delNode->leftChild == nullptr && delNode->rightChild != nullptr)
@@ -77,49 +77,30 @@ void BinaryTree::delInt(int deldata) {
         std::cout << "Удаляем, если есть только правая дочерняя вершина\n";
         delNode->rightChild->parent = delNode->parent;
         delNode->parent->rightChild = delNode->rightChild;
-        //delete delNode;
+        delete delNode;
         return;
     }
     // Если две дочернии вершины :-o
-    //int findData = delNode->data;
-    // Переходим в левую ветку...
-    Node    *findNode = nullptr, 
-            *nextNode = delNode->leftChild;
-    std::cout << "Переходим к левой ветке: " << nextNode->data << "\n";
-    // ... и идём к самому правому узлу левой ветки
-    std::cout << "Переходим к самому правому узлу левой ветки: ";
-    while(nextNode != nullptr)
+   if (delNode->leftChild != nullptr && delNode->rightChild != nullptr)
     {
-        //findData = nextNode->data;
-        findNode = nextNode;
-        std::cout << findNode->data << " ";
-        nextNode = nextNode->rightChild;
+        std::cout << "Узел " << delNode << " имеет оба дочерних элемента, левый: " << delNode->leftChild << " и правый: " << delNode->rightChild << std::endl;
+        Node* mostLeftChild = delNode->leftChild;
+        Node* mostLeftParent = delNode;
+
+        while (mostLeftChild->rightChild != nullptr)
+        {
+            mostLeftParent = mostLeftChild;
+            mostLeftChild = mostLeftChild->rightChild;
+        }
+
+        delNode->data = mostLeftChild->data;
+        delNode = mostLeftChild;
+
+        if (mostLeftParent->leftChild == mostLeftChild)
+            mostLeftParent->leftChild = nullptr;
+        else
+            mostLeftParent->rightChild = mostLeftChild->rightChild;
+        return;
     }
-    //std::cout << "Переходим к самому правому узлу левой ветки: " << findNode->data << "\n";
-    if(findNode->data < delNode->data)
-    {
-        std::cout << "\nПодготовка к удалению узла\n";
-        // Правый узел родителя удаляемого узла устанавливаем на найденный узел
-        delNode->parent->rightChild = findNode;
-        // Левый узел найденного узла устанавливаем на левый узел удаляемого узла
-        findNode->leftChild = delNode->leftChild;
-        // Правый узел найденного узла устанавливаем на правый узел удаляемого узла
-        findNode->rightChild = delNode->rightChild;
-        // Родителя найденного узла устанавливаем на родителя удаляемого узла
-        findNode->parent = delNode->parent;
-        // Родителем левого узла устаналиваем найденный узел
-        delNode->leftChild->parent = findNode;
-        // Родителем правого узла устаналиваем найденный узел
-        delNode->rightChild->parent = findNode;
-        //delNode->parent->leftChild == findNode
-        std::cout << "Удаление узла\n";
-        delNode->leftChild = nullptr;
-        delNode->rightChild = nullptr;
-        nextNode = nullptr;
-        findNode = nullptr;
-        //delete delNode;
-    }
-    // завершаем работу
-    return;
 
 }
